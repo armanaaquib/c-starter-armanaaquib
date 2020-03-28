@@ -4,6 +4,7 @@
 unsigned char is_even(int);
 unsigned char is_odd(int);
 double square(double);
+double cube(double);
 
 unsigned char is_even(int number){
   return number % 2 == 0 ? 'T' : 'F';
@@ -17,6 +18,10 @@ double square(double number){
   return pow(number, 2);
 }
 
+double cube(double number){
+  return square(number) * number;
+}
+
 int main(void)
 {
   printf("is 2 Even? %c\n", is_even(2));
@@ -27,6 +32,9 @@ int main(void)
 
   printf("Square of 2: %lf\n", square(2));
   printf("Square of 2.2: %lf\n", square(2.2));
+
+  printf("Cube of 2: %lf\n", cube(2));
+  printf("Cube of 2.2: %lf\n", cube(2.2));
 
   return 0;
 }
