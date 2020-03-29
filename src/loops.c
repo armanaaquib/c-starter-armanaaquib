@@ -4,6 +4,7 @@ unsigned long long factorial(unsigned);
 void print_fibonacci(unsigned);
 void print_odd_numbers(unsigned);
 void print_even_numbers(unsigned);
+void print_multiplication_table(int, unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -51,9 +52,22 @@ void print_even_numbers(unsigned number)
   }
 }
 
+void print_multiplication_table(int number, unsigned length)
+{
+  unsigned count;
+  long mul;
+
+  for(count = 1; count <= length; count++)
+  {
+    mul = number * (int)count;
+    printf("%d X %u = %ld\n", number, count, mul);
+  }
+}
+
 int main(void)
 {
-  unsigned number;
+  unsigned number, count;
+  int num;
 
   printf("1. Factorial\n");
   printf("Enter a Numbers: ");
@@ -66,16 +80,22 @@ int main(void)
   print_fibonacci(number);
   printf("\n\n");
 
-  printf("3. Odd Number Series");
+  printf("3. Odd Number Series\n");
   printf("Enter a positive number: ");
   scanf("%u", &number);
   print_odd_numbers(number);
   printf("\n\n");
 
-  printf("4. Even Number Series");
+  printf("4. Even Number Series\n");
   printf("Enter a positive number: ");
   scanf("%u", &number);
   print_even_numbers(number);
+  printf("\n\n");
+
+  printf("5. Multiplication Table\n");
+  printf("Enter Number,Count: ");
+  scanf("%d,%u", &num, &count);
+  print_multiplication_table(num, count);
   printf("\n\n");
 
   return 0;
