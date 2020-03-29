@@ -1,4 +1,4 @@
-gcc $1
+gcc src/$1
 if [ $? == 0 ]
 then
   ./a.out
