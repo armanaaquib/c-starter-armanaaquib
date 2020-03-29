@@ -8,6 +8,7 @@ void print_multiplication_table(int, unsigned);
 unsigned long sum_of_N_numbers(unsigned, unsigned);
 unsigned long product_of_N_numbers(unsigned, unsigned);
 void print_all_odd_numbers(unsigned, unsigned);
+void print_every_nth_number(int, int, unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -104,10 +105,20 @@ void print_all_odd_numbers(unsigned start, unsigned end)
   }
 }
 
+void print_every_nth_number(int num1, int num2, unsigned n)
+{
+  int num;
+
+  for(num = num1; num <= num2; num += n)
+  {
+    printf("%d ", num);
+  }
+}
+
 int main(void)
 {
   unsigned number, count;
-  int num;
+  int num, num2;
 
   printf("1. Factorial\n");
   printf("Enter a Numbers: ");
@@ -154,6 +165,12 @@ int main(void)
   printf("Enter a number,count: ");
   scanf("%u,%u", &number, &count);
   print_all_odd_numbers(number, count);
+  printf("\n\n");
+
+  printf("9. Print every nth number between any two number\n");
+  printf("Enter Number1,Number2,n: ");
+  scanf("%d,%d,%u", &num, &num2, &count);
+  print_every_nth_number(num, num2, count);
   printf("\n\n");
 
   return 0;
