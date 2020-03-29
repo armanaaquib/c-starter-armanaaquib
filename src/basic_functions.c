@@ -11,24 +11,30 @@ double simple_interest(float, float, float);
 double compound_interest(float, float, float);
 float fahrenheit_to_centigrade(float);
 float centigrade_to_fahrenheit(float);
+float greatest(float, float, float);
 
-unsigned char is_even(int number){
+unsigned char is_even(int number)
+{
   return number % 2 == 0;
 }
 
-unsigned char is_odd(int number){
+unsigned char is_odd(int number)
+{
   return ! is_even(number);
 }
 
-double square(float number){
+double square(float number)
+{
   return pow(number, 2);
 }
 
-double cube(float number){
+double cube(float number)
+{
   return square(number) * number;
 }
 
-unsigned gcd(unsigned num1, unsigned num2){
+unsigned gcd(unsigned num1, unsigned num2)
+{
   unsigned greatest_common_divisor;
   unsigned dividend = num1;
   unsigned divisor = num2;
@@ -56,28 +62,38 @@ unsigned long lcm(unsigned num1, unsigned num2)
   return (unsigned long) (num1 * num2) / gcd(num1, num2);
 }
 
-double simple_interest(float principal_amount, float interest_rate, float duration){
+double simple_interest(float principal_amount, float interest_rate, float duration)
+{
   return principal_amount * interest_rate * duration / 100;
 }
 
-double compunt_interest(float principal_amount, float interest_rate, float duration){
+double compunt_interest(float principal_amount, float interest_rate, float duration)
+{
   double final_amount = principal_amount * pow((1 + interest_rate / 100), duration);
   return final_amount - principal_amount;
 }
 
-float fahrenheit_to_centigrade(float fahrenheit_temperature){
+float fahrenheit_to_centigrade(float fahrenheit_temperature)
+{
   return (fahrenheit_temperature - 32) * 5 / 9;
 }
 
-float centigrade_to_fahrenheit(float centigrade_temperature){
+float centigrade_to_fahrenheit(float centigrade_temperature)
+{
   return (centigrade_temperature * 9 / 5) + 32;
+}
+
+float greatest(float num1, float num2, float num3)
+{
+  float larger = num1 > num2 ? num1 : num2;
+  return larger > num3 ? larger : num3;
 }
 
 int main(void)
 {
   int number;
-  float float_number, principal_amount, interest_rate, duration;
-  float temperature;
+  float number1, principal_amount, interest_rate, duration;
+  float temperature, number2, number3;
   unsigned num1, num2;
 
   printf("1. isEven\n");
@@ -92,13 +108,13 @@ int main(void)
 
   printf("3. square\n");
   printf("Enter a Number: ");
-  scanf("%f", &float_number);
-  printf("square(%.3f): %.3lf\n\n", float_number, square(float_number));
+  scanf("%f", &number1);
+  printf("square(%.3f): %.3lf\n\n", number1, square(number1));
 
   printf("4. cube\n");
   printf("Enter a Number: ");
-  scanf("%f", &float_number);
-  printf("cube(%.3f): %.3lf\n\n", float_number, cube(float_number));
+  scanf("%f", &number1);
+  printf("cube(%.3f): %.3lf\n\n", number1, cube(number1));
 
   printf("5. gcd\n");
   printf("Enter Number1,Number2: ");
@@ -133,6 +149,12 @@ int main(void)
   scanf("%f", &temperature);
   printf("centigrade_to_fahrenheit(%f): ", temperature);
   printf("%f\n\n", centigrade_to_fahrenheit(temperature));
+
+  printf("11. Greatest of three numbers\n");
+  printf("Enter Number1,Number2,Number3: ");
+  scanf("%f,%f,%f", &number1, &number2, &number3);
+  printf("greatest(%.3f, %.3f, %.3f): ", number1, number2, number3);
+  printf("%.3f\n\n", greatest(number1, number2, number3));
 
   return 0;
 }
