@@ -57,6 +57,11 @@ double simple_interest(float principal_amount, float interest_rate, float durati
   return principal_amount * interest_rate * duration / 100;
 }
 
+double compunt_interest(float principal_amount, float interest_rate, float duration){
+  double final_amount = principal_amount * pow((1 + interest_rate / 100), duration);
+  return final_amount - principal_amount;
+}
+
 int main(void)
 {
   int number;
@@ -76,12 +81,12 @@ int main(void)
   printf("3. square\n");
   printf("Enter a Number: ");
   scanf("%f", &float_number);
-  printf("square(%f): %lf\n\n", float_number, square(float_number));
+  printf("square(%.3f): %.3lf\n\n", float_number, square(float_number));
 
   printf("4. cube\n");
   printf("Enter a Number: ");
   scanf("%f", &float_number);
-  printf("cube(%f): %lf\n\n", float_number, cube(float_number));
+  printf("cube(%.3f): %.3lf\n\n", float_number, cube(float_number));
 
   printf("5. gcd\n");
   printf("Enter Number1,Number2: ");
@@ -96,8 +101,14 @@ int main(void)
   printf("6. Simple Interest\n");
   printf("Enter Principal Amount,Interest Rate,Duration: ");
   scanf("%f,%f,%f", &principal_amount, &interest_rate, &duration);
-  printf("simple_interest(%f, %f, %f): ", principal_amount, interest_rate, duration);
-  printf("%lf\n\n", simple_interest(principal_amount, interest_rate, duration));
+  printf("simple_interest(%.3f, %.3f, %.3f): ", principal_amount, interest_rate, duration);
+  printf("%.3lf\n\n", simple_interest(principal_amount, interest_rate, duration));
+
+  printf("6. Compound Interest\n");
+  printf("Enter Principal Amount,Interest Rate,Duration: ");
+  scanf("%f,%f,%f", &principal_amount, &interest_rate, &duration);
+  printf("compound_interest(%.3f, %.3f, %.3f): ", principal_amount, interest_rate, duration);
+  printf("%.3lf\n\n", compunt_interest(principal_amount, interest_rate, duration));
 
   return 0;
 }
