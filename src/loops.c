@@ -9,6 +9,7 @@ unsigned long sum_of_N_numbers(unsigned, unsigned);
 unsigned long product_of_N_numbers(unsigned, unsigned);
 void print_all_odd_numbers(unsigned, unsigned);
 void print_every_nth_number(int, int, unsigned);
+long sum_of_even_numbers(int, int);
 
 unsigned long long factorial(unsigned number)
 {
@@ -115,6 +116,20 @@ void print_every_nth_number(int num1, int num2, unsigned n)
   }
 }
 
+long sum_of_even_numbers(int num1, int num2)
+{
+  int even_number = num1 % 2 == 0 ? num1 : num1 + 1;
+  long sum = 0;
+
+  while(even_number <= num2)
+  {
+    sum += even_number;
+    even_number += 2;
+  }
+
+  return sum;
+}
+
 int main(void)
 {
   unsigned number, count;
@@ -172,6 +187,12 @@ int main(void)
   scanf("%d,%d,%u", &num, &num2, &count);
   print_every_nth_number(num, num2, count);
   printf("\n\n");
+
+  printf("10. Sum of all even numbers between any two numbers\n");
+  printf("Enter Number1,Number2: ");
+  scanf("%d,%d", &num, &num2);
+  printf("sum_of_even_numbers(%d, %d): ", num, num2);
+  printf("%ld\n\n", sum_of_even_numbers(num, num2));
 
   return 0;
 }
