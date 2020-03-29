@@ -9,6 +9,7 @@ unsigned gcd(unsigned, unsigned);
 unsigned long lcm(unsigned, unsigned);
 double simple_interest(float, float, float);
 double compound_interest(float, float, float);
+float fahrenheit_to_centigrade(float);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -63,10 +64,15 @@ double compunt_interest(float principal_amount, float interest_rate, float durat
   return final_amount - principal_amount;
 }
 
+float fahrenheit_to_centigrade(float fahrenheit_temperature){
+  return (fahrenheit_temperature - 32) * 5 / 9;
+}
+
 int main(void)
 {
   int number;
   float float_number, principal_amount, interest_rate, duration;
+  float temperature;
   unsigned num1, num2;
 
   printf("1. isEven\n");
@@ -94,22 +100,28 @@ int main(void)
   scanf("%u,%u", &num1, &num2);
   printf("gcd(%u, %u): %u\n\n", num1, num2, gcd(num1, num2));
 
-  printf("5. lcm\n");
+  printf("6. lcm\n");
   printf("Enter Number1,Number2: ");
   scanf("%u,%u", &num1, &num2);
   printf("lcm(%u, %u): %lu\n\n", num1, num2, lcm(num1, num2));
 
-  printf("6. Simple Interest\n");
+  printf("7. Simple Interest\n");
   printf("Enter Principal Amount,Interest Rate,Duration: ");
   scanf("%f,%f,%f", &principal_amount, &interest_rate, &duration);
   printf("simple_interest(%.3f, %.3f, %.3f): ", principal_amount, interest_rate, duration);
   printf("%.3lf\n\n", simple_interest(principal_amount, interest_rate, duration));
 
-  printf("7. Compound Interest\n");
+  printf("8. Compound Interest\n");
   printf("Enter Principal Amount,Interest Rate,Duration: ");
   scanf("%f,%f,%f", &principal_amount, &interest_rate, &duration);
   printf("compound_interest(%.3f, %.3f, %.3f): ", principal_amount, interest_rate, duration);
   printf("%.3lf\n\n", compunt_interest(principal_amount, interest_rate, duration));
+
+  printf("9. Temperature Conversion (fahrenheit to centigrade)\n");
+  printf("Enter temperature in fahrenheit: ");
+  scanf("%f", &temperature);
+  printf("fahrenheit_to_centigrade(%f): ", temperature);
+  printf("%f\n\n", fahrenheit_to_centigrade(temperature));
 
   return 0;
 }
