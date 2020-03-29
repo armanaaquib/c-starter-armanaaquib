@@ -8,6 +8,7 @@ double cube(float);
 unsigned gcd(unsigned, unsigned);
 unsigned long lcm(unsigned, unsigned);
 double simple_interest(float, float, float);
+double compound_interest(float, float, float);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -104,7 +105,7 @@ int main(void)
   printf("simple_interest(%.3f, %.3f, %.3f): ", principal_amount, interest_rate, duration);
   printf("%.3lf\n\n", simple_interest(principal_amount, interest_rate, duration));
 
-  printf("6. Compound Interest\n");
+  printf("7. Compound Interest\n");
   printf("Enter Principal Amount,Interest Rate,Duration: ");
   scanf("%f,%f,%f", &principal_amount, &interest_rate, &duration);
   printf("compound_interest(%.3f, %.3f, %.3f): ", principal_amount, interest_rate, duration);
