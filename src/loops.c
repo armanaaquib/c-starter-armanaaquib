@@ -5,8 +5,9 @@ void print_fibonacci(unsigned);
 void print_odd_numbers(unsigned);
 void print_even_numbers(unsigned);
 void print_multiplication_table(int, unsigned);
-long sum_of_N_numbers(unsigned, unsigned);
-long product_of_N_numbers(unsigned, unsigned);
+unsigned long sum_of_N_numbers(unsigned, unsigned);
+unsigned long product_of_N_numbers(unsigned, unsigned);
+void print_all_odd_numbers(unsigned, unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -66,7 +67,7 @@ void print_multiplication_table(int number, unsigned length)
   }
 }
 
-long sum_of_N_numbers(unsigned number, unsigned length)
+unsigned long sum_of_N_numbers(unsigned number, unsigned length)
 {
   long sum = 0;
   unsigned count;
@@ -79,7 +80,7 @@ long sum_of_N_numbers(unsigned number, unsigned length)
   return sum;
 }
 
-long product_of_N_numbers(unsigned number, unsigned length)
+unsigned long product_of_N_numbers(unsigned number, unsigned length)
 {
   long mul = 1;
   unsigned count;
@@ -90,6 +91,17 @@ long product_of_N_numbers(unsigned number, unsigned length)
   }
 
   return mul;
+}
+
+void print_all_odd_numbers(unsigned start, unsigned end)
+{
+  unsigned odd_number = start % 2 == 0 ? start + 1 : start;
+
+  while(odd_number <= end)
+  {
+    printf("%d ", odd_number);
+    odd_number += 2;
+  }
 }
 
 int main(void)
@@ -130,13 +142,19 @@ int main(void)
   printf("Enter Natural Number,Count: ");
   scanf("%u,%u", &number, &count);
   printf("sum_of_N_numbers(%u, %u): ", number, count);
-  printf("%ld\n\n", sum_of_N_numbers(number, count));
+  printf("%lu\n\n", sum_of_N_numbers(number, count));
 
   printf("7. Product of any N numbers\n");
   printf("Enter Natural Number,Count: ");
   scanf("%u,%u", &number, &count);
   printf("product_of_N_numbers(%u, %u): ", number, count);
-  printf("%ld\n\n", product_of_N_numbers(number, count));
+  printf("%lu\n\n", product_of_N_numbers(number, count));
+
+  printf("8. Print all odd numbers between any two numbers\n");
+  printf("Enter a number,count: ");
+  scanf("%u,%u", &number, &count);
+  print_all_odd_numbers(number, count);
+  printf("\n\n");
 
   return 0;
 }
