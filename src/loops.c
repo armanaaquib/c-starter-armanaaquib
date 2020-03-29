@@ -5,6 +5,7 @@ void print_fibonacci(unsigned);
 void print_odd_numbers(unsigned);
 void print_even_numbers(unsigned);
 void print_multiplication_table(int, unsigned);
+long sum_of_N_numbers(unsigned, unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -64,6 +65,19 @@ void print_multiplication_table(int number, unsigned length)
   }
 }
 
+long sum_of_N_numbers(unsigned number, unsigned length)
+{
+  long sum = 0;
+  unsigned count;
+
+  for(count = 0; count < length; count++)
+  {
+    sum += number + count;
+  }
+
+  return sum;
+}
+
 int main(void)
 {
   unsigned number, count;
@@ -97,6 +111,12 @@ int main(void)
   scanf("%d,%u", &num, &count);
   print_multiplication_table(num, count);
   printf("\n\n");
+
+  printf("6. Sum of any N number\n");
+  printf("Enter Natural Number,Count: ");
+  scanf("%u,%u", &number, &count);
+  printf("sum_of_N_numbers(%u, %u): ", number, count);
+  printf("%ld\n\n", sum_of_N_numbers(number, count));
 
   return 0;
 }
