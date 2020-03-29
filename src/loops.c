@@ -2,6 +2,7 @@
 
 unsigned long long factorial(unsigned);
 void print_fibonacci(unsigned);
+void print_odd_numbers(unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -29,6 +30,16 @@ void print_fibonacci(unsigned number)
   }
 }
 
+void print_odd_numbers(unsigned number)
+{
+  unsigned odd_number;
+
+  for(odd_number = 1; odd_number <= number; odd_number += 2)
+  {
+    printf("%d ", odd_number);
+  }
+}
+
 int main(void)
 {
   unsigned number;
@@ -42,6 +53,12 @@ int main(void)
   printf("Enter a Count: ");
   scanf("%d", &number);
   print_fibonacci(number);
+  printf("\n\n");
+
+  printf("3. Odd Number Series");
+  printf("Enter a positive number: ");
+  scanf("%u", &number);
+  print_odd_numbers(number);
   printf("\n\n");
 
   return 0;
