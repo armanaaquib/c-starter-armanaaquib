@@ -48,32 +48,34 @@ unsigned gcd(unsigned num1, unsigned num2){
 
 int main(void)
 {
-  int number, number2;
+  int number;
+  double double_number;
+  unsigned num1, num2;
 
   printf("1. isEven\n");
   printf("Enter a Number: ");
   scanf("%d", &number);
-  printf("%d: %s\n\n", number, is_even(number)?"EVEN":"NOT EVEN");
+  printf("is_even(%d): %s\n\n", number, is_even(number)?"EVEN":"NOT EVEN");
 
   printf("2. isOdd\n");
   printf("Enter a Number: ");
   scanf("%d", &number);
-  printf("%d: %s\n\n", number, is_odd(number)?"ODD":"NOT ODD");
+  printf("is_odd(%d): %s\n\n", number, is_odd(number)?"ODD":"NOT ODD");
 
   printf("3. square\n");
   printf("Enter a Number: ");
-  scanf("%d", &number);
-  printf("%d: %lf\n\n", number, square(number));
+  scanf("%lf", &double_number);
+  printf("square(%lf): %lf\n\n", double_number, square(double_number));
 
   printf("4. cube\n");
   printf("Enter a Number: ");
-  scanf("%d", &number);
-  printf("%d: %lf\n\n", number, cube(number));
+  scanf("%lf", &double_number);
+  printf("cube(%lf): %lf\n\n", double_number, cube(double_number));
 
   printf("5. gcd\n");
   printf("Enter two positive numbers: ");
-  scanf("%u %u", &number, &number2);
-  printf("gcd(%u, %u): %u\n", number, number2, gcd(number, number2));
+  scanf("%u %u", &num1, &num2);
+  printf("gcd(%u, %u): %u\n", num1, num2, gcd(num1, num2));
 
   return 0;
 }
