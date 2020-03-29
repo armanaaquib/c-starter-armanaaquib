@@ -6,6 +6,7 @@ void print_odd_numbers(unsigned);
 void print_even_numbers(unsigned);
 void print_multiplication_table(int, unsigned);
 long sum_of_N_numbers(unsigned, unsigned);
+long product_of_N_numbers(unsigned, unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -78,6 +79,19 @@ long sum_of_N_numbers(unsigned number, unsigned length)
   return sum;
 }
 
+long product_of_N_numbers(unsigned number, unsigned length)
+{
+  long mul = 1;
+  unsigned count;
+
+  for(count = 0; count < length; count++)
+  {
+    mul *= number + count;
+  }
+
+  return mul;
+}
+
 int main(void)
 {
   unsigned number, count;
@@ -117,6 +131,12 @@ int main(void)
   scanf("%u,%u", &number, &count);
   printf("sum_of_N_numbers(%u, %u): ", number, count);
   printf("%ld\n\n", sum_of_N_numbers(number, count));
+
+  printf("7. Product of any N numbers\n");
+  printf("Enter Natural Number,Count: ");
+  scanf("%u,%u", &number, &count);
+  printf("product_of_N_numbers(%u, %u): ", number, count);
+  printf("%ld\n\n", product_of_N_numbers(number, count));
 
   return 0;
 }
