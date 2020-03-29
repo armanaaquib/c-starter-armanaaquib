@@ -10,6 +10,7 @@ unsigned long product_of_N_numbers(unsigned, unsigned);
 void print_all_odd_numbers(unsigned, unsigned);
 void print_every_nth_number(int, int, unsigned);
 long sum_of_even_numbers(int, int);
+void print_odd_numbers_reverse(int);
 
 unsigned long long factorial(unsigned number)
 {
@@ -43,7 +44,7 @@ void print_odd_numbers(unsigned number)
 
   for(odd_number = 1; odd_number <= number; odd_number += 2)
   {
-    printf("%d ", odd_number);
+    printf("%u ", odd_number);
   }
 }
 
@@ -53,7 +54,7 @@ void print_even_numbers(unsigned number)
 
   for(even_number = 0; even_number <= number; even_number += 2)
   {
-    printf("%d ", even_number);
+    printf("%u ", even_number);
   }
 }
 
@@ -101,7 +102,7 @@ void print_all_odd_numbers(unsigned start, unsigned end)
 
   while(odd_number <= end)
   {
-    printf("%d ", odd_number);
+    printf("%u ", odd_number);
     odd_number += 2;
   }
 }
@@ -128,6 +129,16 @@ long sum_of_even_numbers(int num1, int num2)
   }
 
   return sum;
+}
+
+void print_odd_numbers_reverse(int number){
+  int odd_number = number % 2 == 0 ? number - 1 : number;
+
+  while(odd_number > 0)
+  {
+    printf("%d ", odd_number);
+    odd_number -= 2;
+  }
 }
 
 int main(void)
@@ -193,6 +204,12 @@ int main(void)
   scanf("%d,%d", &num, &num2);
   printf("sum_of_even_numbers(%d, %d): ", num, num2);
   printf("%ld\n\n", sum_of_even_numbers(num, num2));
+
+  printf("11. Print all odd numbers between N and 1 backwards\n");
+  printf("Enter a positive number: ");
+  scanf("%u", &number);
+  print_odd_numbers_reverse(number);
+  printf("\n\n");
 
   return 0;
 }
