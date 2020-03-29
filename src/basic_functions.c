@@ -6,6 +6,7 @@ unsigned char is_odd(int);
 double square(double);
 double cube(double);
 unsigned gcd(unsigned, unsigned);
+unsigned long lcm(unsigned, unsigned);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -46,6 +47,11 @@ unsigned gcd(unsigned num1, unsigned num2){
   return greatest_common_divisor;
 }
 
+unsigned long lcm(unsigned num1, unsigned num2)
+{
+  return (unsigned long) (num1 * num2) / gcd(num1, num2);
+}
+
 int main(void)
 {
   int number;
@@ -75,7 +81,12 @@ int main(void)
   printf("5. gcd\n");
   printf("Enter two positive numbers: ");
   scanf("%u %u", &num1, &num2);
-  printf("gcd(%u, %u): %u\n", num1, num2, gcd(num1, num2));
+  printf("gcd(%u, %u): %u\n\n", num1, num2, gcd(num1, num2));
+
+  printf("5. lcm\n");
+  printf("Enter two positive numbers: ");
+  scanf("%u %u", &num1, &num2);
+  printf("lcm(%u, %u): %lu\n\n", num1, num2, lcm(num1, num2));
 
   return 0;
 }
