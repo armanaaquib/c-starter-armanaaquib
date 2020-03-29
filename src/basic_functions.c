@@ -3,10 +3,11 @@
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
-double square(double);
-double cube(double);
+double square(float);
+double cube(float);
 unsigned gcd(unsigned, unsigned);
 unsigned long lcm(unsigned, unsigned);
+double simple_interest(float, float, float);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -16,11 +17,11 @@ unsigned char is_odd(int number){
   return ! is_even(number);
 }
 
-double square(double number){
+double square(float number){
   return pow(number, 2);
 }
 
-double cube(double number){
+double cube(float number){
   return square(number) * number;
 }
 
@@ -52,10 +53,14 @@ unsigned long lcm(unsigned num1, unsigned num2)
   return (unsigned long) (num1 * num2) / gcd(num1, num2);
 }
 
+double simple_interest(float principal_amount, float interest_rate, float duration){
+  return principal_amount * interest_rate * duration / 100;
+}
+
 int main(void)
 {
   int number;
-  double double_number;
+  float float_number, principal_amount, interest_rate, duration;
   unsigned num1, num2;
 
   printf("1. isEven\n");
@@ -70,23 +75,29 @@ int main(void)
 
   printf("3. square\n");
   printf("Enter a Number: ");
-  scanf("%lf", &double_number);
-  printf("square(%lf): %lf\n\n", double_number, square(double_number));
+  scanf("%f", &float_number);
+  printf("square(%f): %lf\n\n", float_number, square(float_number));
 
   printf("4. cube\n");
   printf("Enter a Number: ");
-  scanf("%lf", &double_number);
-  printf("cube(%lf): %lf\n\n", double_number, cube(double_number));
+  scanf("%f", &float_number);
+  printf("cube(%f): %lf\n\n", float_number, cube(float_number));
 
   printf("5. gcd\n");
-  printf("Enter two positive numbers: ");
-  scanf("%u %u", &num1, &num2);
+  printf("Enter Number1,Number2: ");
+  scanf("%u,%u", &num1, &num2);
   printf("gcd(%u, %u): %u\n\n", num1, num2, gcd(num1, num2));
 
   printf("5. lcm\n");
-  printf("Enter two positive numbers: ");
-  scanf("%u %u", &num1, &num2);
+  printf("Enter Number1,Number2: ");
+  scanf("%u,%u", &num1, &num2);
   printf("lcm(%u, %u): %lu\n\n", num1, num2, lcm(num1, num2));
+
+  printf("6. Simple Interest\n");
+  printf("Enter Principal Amount,Interest Rate,Duration: ");
+  scanf("%f,%f,%f", &principal_amount, &interest_rate, &duration);
+  printf("simple_interest(%f, %f, %f): ", principal_amount, interest_rate, duration);
+  printf("%lf\n\n", simple_interest(principal_amount, interest_rate, duration));
 
   return 0;
 }
