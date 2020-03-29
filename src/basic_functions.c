@@ -24,17 +24,27 @@ double cube(double number){
 
 int main(void)
 {
-  printf("is 2 Even? %d\n", is_even(2));
-  printf("is 1 Even? %d\n", is_even(1));
+  int number;
 
-  printf("is 1 Odd? %d\n", is_odd(1));
-  printf("is 2 Odd? %d\n", is_odd(2));
+  printf("1. isEven\n");
+  printf("Enter a Number: ");
+  scanf("%d", &number);
+  printf("%d: %s\n\n", number, is_even(number)?"EVEN":"NOT EVEN");
 
-  printf("Square of 2: %lf\n", square(2));
-  printf("Square of 2.2: %lf\n", square(2.2));
+  printf("2. isOdd\n");
+  printf("Enter a Number: ");
+  scanf("%d", &number);
+  printf("%d: %s\n\n", number, is_odd(number)?"ODD":"NOT ODD");
 
-  printf("Cube of 2: %lf\n", cube(2));
-  printf("Cube of 2.2: %lf\n", cube(2.2));
+  printf("3. square\n");
+  printf("Enter a Number: ");
+  scanf("%d", &number);
+  printf("%d: %lf\n\n", number, square(number));
+
+  printf("4. cube\n");
+  printf("Enter a Number: ");
+  scanf("%d", &number);
+  printf("%d: %lf\n\n", number, cube(number));
 
   return 0;
 }
