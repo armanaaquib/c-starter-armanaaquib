@@ -12,6 +12,7 @@ double compound_interest(float, float, float);
 float fahrenheit_to_centigrade(float);
 float centigrade_to_fahrenheit(float);
 float greatest(float, float, float);
+float average(float, float, float);
 
 unsigned char is_even(int number)
 {
@@ -89,6 +90,11 @@ float greatest(float num1, float num2, float num3)
   return larger > num3 ? larger : num3;
 }
 
+float average(float num1, float num2, float num3)
+{
+  return (num1 + num2 + num3) / 3;
+}
+
 int main(void)
 {
   int number;
@@ -155,6 +161,12 @@ int main(void)
   scanf("%f,%f,%f", &number1, &number2, &number3);
   printf("greatest(%.3f, %.3f, %.3f): ", number1, number2, number3);
   printf("%.3f\n\n", greatest(number1, number2, number3));
+
+  printf("12. Average of three numbers\n");
+  printf("Enter Number1,Number2,Number3: ");
+  scanf("%f,%f,%f", &number1, &number2, &number3);
+  printf("average(%.3f, %.3f, %.3f): ", number1, number2, number3);
+  printf("%f\n\n", average(number1, number2, number3));
 
   return 0;
 }
