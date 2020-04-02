@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 unsigned long long factorial(unsigned);
-void populate_fibonacci(int *, unsigned);
+void populate_fibonacci(unsigned *, unsigned);
 void print_odd_numbers(unsigned);
 void print_even_numbers(unsigned);
 void print_multiplication_table(int, unsigned);
@@ -11,7 +11,7 @@ void print_all_odd_numbers(unsigned, unsigned);
 void print_every_nth_number(int, int, unsigned);
 long sum_of_even_numbers(int, int);
 void print_odd_numbers_reverse(int);
-void print_int_array(int *, unsigned);
+void print_unsigned_array(unsigned *, unsigned);
 
 unsigned long long factorial(unsigned number)
 {
@@ -26,7 +26,7 @@ unsigned long long factorial(unsigned number)
   return fact;
 }
 
-void populate_fibonacci(int * fibonacci_series, unsigned number)
+void populate_fibonacci(unsigned * fibonacci_series, unsigned number)
 {
   unsigned term1 = 0, term2 = 1, count, sum;
 
@@ -142,13 +142,13 @@ void print_odd_numbers_reverse(int number){
   }
 }
 
-void print_int_array(int * array, unsigned length)
+void print_unsigned_array(unsigned * array, unsigned length)
 {
   unsigned index;
 
   for(index = 0; index < length; index++)
   {
-    printf("%d ", array[index]);
+    printf("%u ", array[index]);
   }
 }
 
@@ -165,9 +165,9 @@ int main(void)
   printf("2. Fibonacci\n");
   printf("Enter a Count: ");
   scanf("%d", &count);
-  int fibonacci_series[count];
+  unsigned fibonacci_series[count];
   populate_fibonacci(fibonacci_series, count);
-  print_int_array(fibonacci_series, count);
+  print_unsigned_array(fibonacci_series, count);
   printf("\n\n");
 
   printf("3. Odd Number Series\n");
