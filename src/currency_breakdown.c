@@ -1,76 +1,34 @@
 #include <stdio.h>
 
-void print_currency_breakdown(unsigned long);
-unsigned get_notes_count(unsigned long, unsigned);
-void print_notes_count(unsigned long, unsigned);
-unsigned long deduct_money(unsigned long, unsigned);
+void currency_breakdown(unsigned long, unsigned *, unsigned *, unsigned);
 
-unsigned get_notes_count(unsigned long amount, unsigned denomination)
-{
-  return amount / denomination;
-}
-
-void print_notes_count(unsigned long amount, unsigned denomination)
-{
-  unsigned no_of_notes = get_notes_count(amount, denomination);
-
-  if(no_of_notes)
-  {
-    printf("%u x Rs %u\n", no_of_notes, denomination);
-  }
-}
-
-unsigned long deduct_money(unsigned long money, unsigned denomination)
-{
-  return money - get_notes_count(money, denomination) * denomination;
-}
-
-void print_currency_breakdown(unsigned long amount)
+void currency_breakdown(unsigned long amount, unsigned * denoms, unsigned * no_of_notes, unsigned length)
 {
   unsigned long money = amount;
-  unsigned no_of_notes, denomination;
+  unsigned index;
 
-  denomination = 2000;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 500;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 200;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 100;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 50;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 10;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 5;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
-
-  denomination = 1;
-  print_notes_count(money, denomination);
-  money = deduct_money(money, denomination);
+  for(index = 0; index < length; index++)
+  {
+    no_of_notes[index] = money / denoms[index];
+    money = money % denoms[index];
+  }
 }
 
 int main(void)
 {
-  unsigned long int amount;
+  unsigned long amount;
+  unsigned denominations[8] = {2000, 500, 200, 100, 50, 10, 5, 1};
+  unsigned no_of_notes[8], index;
 
   printf("Currency Breakdown(ATM)\n");
   printf("Enter an amount: ");
   scanf("%lu", &amount);
-  print_currency_breakdown(amount);
+  currency_breakdown(amount, denominations, no_of_notes, 8);
+
+  for(index = 0; index < 8; index++)
+  {
+    printf("%u x Rs %u\n", no_of_notes[index], denominations[index]);
+  }
 
   return 0;
 }
