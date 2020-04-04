@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define SMC_ASCII_START 97
+#define SML_ASCII_START 97
 #define SCL_ASCII_END 122
 #define CCL_ASCII_START 65
 #define CCL_ASCII_END 90
@@ -23,9 +23,9 @@ unsigned shift_13_char(unsigned ascii, unsigned short start_ascii, unsigned shor
 
 unsigned ROT13_cipher_char(unsigned ascii)
 {
-  if(ascii >= SMC_ASCII_START && ascii <= SCL_ASCII_END)
+  if(ascii >= SML_ASCII_START && ascii <= SCL_ASCII_END)
   {
-    return shift_13_char(ascii, SMC_ASCII_START, SCL_ASCII_END);
+    return shift_13_char(ascii, SML_ASCII_START, SCL_ASCII_END);
   }
 
   if(ascii >= CCL_ASCII_START && ascii <= CCL_ASCII_END)
