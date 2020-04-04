@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-const unsigned short small_case_ascii_start = 97;
-const unsigned short small_case_ascii_end = 122;
-const unsigned short capital_case_ascii_start = 65;
-const unsigned short capital_case_ascii_end = 90;
+#define SMC_ASCII_START 97
+#define SCL_ASCII_END 122
+#define CCL_ASCII_START 65
+#define CCL_ASCII_END 90
 
 void ROT13_cipher(unsigned *, unsigned *, unsigned);
 unsigned ROT13_cipher_char(unsigned);
@@ -23,14 +23,14 @@ unsigned shift_13_char(unsigned ascii, unsigned short start_ascii, unsigned shor
 
 unsigned ROT13_cipher_char(unsigned ascii)
 {
-  if(ascii >= small_case_ascii_start && ascii <= small_case_ascii_end)
+  if(ascii >= SMC_ASCII_START && ascii <= SCL_ASCII_END)
   {
-    return shift_13_char(ascii, small_case_ascii_start, small_case_ascii_end);
+    return shift_13_char(ascii, SMC_ASCII_START, SCL_ASCII_END);
   }
 
-  if(ascii >= capital_case_ascii_start && ascii <= capital_case_ascii_end)
+  if(ascii >= CCL_ASCII_START && ascii <= CCL_ASCII_END)
   {
-    return shift_13_char(ascii, capital_case_ascii_start, capital_case_ascii_end);
+    return shift_13_char(ascii, CCL_ASCII_START, CCL_ASCII_END);
   }
 
   return ascii;
