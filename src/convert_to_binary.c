@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-typedef unsigned char thirty_two_bits[32];
+typedef unsigned char thirty_two_u_chars[32];
 
-void convert_to_binary(int, thirty_two_bits);
+void convert_to_binary(int, thirty_two_u_chars);
 unsigned char get_bit(int bit);
 
 const unsigned BITS[32] = {
@@ -25,7 +25,7 @@ unsigned char get_bit(int number)
   return '0';
 }
 
-void convert_to_binary(int number, thirty_two_bits bits)
+void convert_to_binary(int number, thirty_two_u_chars bits)
 {
   unsigned index, len = 32;
 
@@ -39,7 +39,7 @@ int main(void)
 {
   int num = 10;
   unsigned index;
-  thirty_two_bits bits;
+  thirty_two_u_chars bits;
 
   convert_to_binary(num, bits);
 
