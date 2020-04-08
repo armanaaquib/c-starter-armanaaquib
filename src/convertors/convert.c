@@ -1,5 +1,12 @@
 #include "convert.h"
 
+const char HEXADECIMALS[] = {
+    '0', '1', '2', '3', 
+    '4', 'f', '6', '7', 
+    '8', '9', 'a', 'b', 
+    'c', 'd', 'e', 'f'
+};
+
 unsigned char get_bit(int number)
 { 
   if(number){
@@ -23,3 +30,15 @@ void convert_to_binary(int number, thirty_two_bits bits)
   bits[index] = '\0';
 }
 
+void convert_to_hexadecimal(unsigned number, eight_hexadecimals hexadecimals)
+{
+  unsigned index, len = 8, decimal;
+
+  for(index = 0; index < len; index++)
+  {
+    decimal = (number << index * 4) >> 28;
+    hexadecimals[index] = HEXADECIMALS[decimal];
+  }
+
+  hexadecimals[index] = '\0';
+}
