@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "convert.h"
 
 const char HEXADECIMALS[] = {
@@ -41,4 +42,18 @@ void convert_to_hexadecimal(unsigned number, eight_hexadecimals hexadecimals)
   }
 
   hexadecimals[index] = '\0';
+}
+
+void print_binary(int number)
+{
+  thirty_two_bits bits;
+  convert_to_binary(number, bits);
+  printf("0b%s\n", bits);
+}
+
+void print_hexadecimal(unsigned number)
+{
+  eight_hexadecimals hexadecimals;
+  convert_to_hexadecimal(number, hexadecimals);
+  printf("0x%s\n", hexadecimals);
 }

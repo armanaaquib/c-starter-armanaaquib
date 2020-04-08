@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include "convert.h"
 
+#define NEW_LINE printf("\n");
+
 int main(void)
 {
-  int num = 10;
-  unsigned index;
-  thirty_two_bits bits;
-  eight_hexadecimals hexadecimals;
+  int num = 20;
 
-  convert_to_binary(num, bits);
-  convert_to_hexadecimal(num, hexadecimals);
-  
-  printf("0b%s\n", bits);
-  printf("0x%s\n", hexadecimals);
+  print_binary(num);
+  print_hexadecimal(num);
 
   return 0;
 }
