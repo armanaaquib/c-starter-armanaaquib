@@ -31,14 +31,15 @@ void convert_to_binary(int number, thirty_two_bits bits)
   bits[index] = '\0';
 }
 
-void convert_to_hexadecimal(unsigned number, eight_hexadecimals hexadecimals)
+void convert_to_hexadecimal(int number, eight_hexadecimals hexadecimals)
 {
+  unsigned mask = 0xf;
   unsigned index, len = 8, decimal;
 
   for(index = 0; index < len; index++)
   {
     decimal = (number << index * 4) >> 28;
-    hexadecimals[index] = HEXADECIMALS[decimal];
+    hexadecimals[index] = HEXADECIMALS[mask & decimal];
   }
 
   hexadecimals[index] = '\0';
@@ -51,7 +52,7 @@ void print_binary(int number)
   printf("0b%s\n", bits);
 }
 
-void print_hexadecimal(unsigned number)
+void print_hexadecimal(int number)
 {
   eight_hexadecimals hexadecimals;
   convert_to_hexadecimal(number, hexadecimals);
