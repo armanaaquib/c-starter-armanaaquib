@@ -22,8 +22,10 @@ unsigned char is_even(int number){
 Evens *filter_even(int *numbers, unsigned count)
 {
   int temp_evens[count];
-  unsigned no_of_even_nos = 0, temp_index = 0;
-  int *even_numbers;
+  Evens *evens = malloc(sizeof(int) + sizeof(int *));
+
+  evens->length = 0;
+  evens->numbers = NULL;
 
   ITERATE(0, count)
   {
@@ -31,21 +33,17 @@ Evens *filter_even(int *numbers, unsigned count)
 
     if(is_even(number))
     {
-      temp_evens[temp_index++] = number;
-      no_of_even_nos += 1;
+      temp_evens[evens->length] = number;
+      evens->length += 1;
     }
   }
 
-  even_numbers = malloc(sizeof(int) * no_of_even_nos);
+  evens->numbers = malloc(sizeof(int) * evens->length);
 
-  ITERATE(0, no_of_even_nos)
+  ITERATE(0, evens->length)
   {
-    even_numbers[index] = temp_evens[index];
+    evens->numbers[index] = temp_evens[index];
   }
-
-  Evens *evens = malloc(sizeof(int) + sizeof(int *));
-  evens->length = no_of_even_nos;
-  evens->numbers = even_numbers;
 
   return evens;
 }
